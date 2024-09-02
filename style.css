@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'YoonChildfundkoreaMinGuk';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/YoonChildfundkoreaMinGuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'YoonChildfundkoreaMinGuk';
+}
+.hidden {
+    display: none;
+}
+#clock {
+    font-size: 40px;
+}
+#greeting {
+    font-size: 80px;
+}
+#lyric span:first-child {
+    font-size: 25px;
+}
+#lyric span:last-child {
+    font-size: 18px;
+}
