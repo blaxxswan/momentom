@@ -24,7 +24,7 @@ function deleteToDo(event) {
     // 크롬의 업데이트로 path메서드 사용 불가능
     event.composedPath()
     : 이벤트가 발생되었을때 이벤트가 통과된 경로를 배열로 반환
-    (타겟부터 최상위요소-window까지의 경로)
+    (타겟부터 최상위요소-window까지의 경로)  
     
     -> 클릭이벤트가 일어난 타겟을 확인하는 방법
     // shadow DOM 외부의 일반적인 이벤트 타겟을 확인할 때
@@ -37,8 +37,10 @@ function deleteToDo(event) {
     이벤트가 일어난 타켓 그 자체임(이벤트의 실제 타켓)!!!
     */
     const li = event.composedPath()[0].parentElement;
-    console.log(li.id);
     li.remove();
+    // parseInt 문자를 숫자로 변경해줌
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
 }
 
 // newTodo를 표시하는 함수
@@ -93,3 +95,8 @@ if (savedToDos !== null) {
     과 같음
     */
 }
+
+/*
+filter함수
+제외하고 새로운 배열을 보여줌 (not삭제 제외한 새로운 배열)
+*/
