@@ -7,12 +7,22 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <!-- 시계 -->
+        <h2 id="clock">00:00:00</h2>
+        <!-- 로그인시 뜰 인사말 -->
+        <!-- 로그인폼 -->
         <form id="login-form" class="hidden">
             <input required maxlength="15" type="text" placeholder="What is your name? "">
             <input type="submit" value="Log In" />
         </form>
-        <h2 id="clock">00:00:00</h2>
         <h1 id="greeting" class="hidden"></h1>
+        <!-- todo -->
+        <form id="todo-form">
+            <input type="text" placeholder="Write a To Do and Press Enter" required />
+        </form>
+        <!-- todo list를 만들고 그 안의 li는 자바스크립트로 생성 -->
+        <ul id="todo-list"></ul>
+        <!-- 가사 -->
         <div id="lyric">
             <span></span>
             <span></span>
@@ -21,5 +31,6 @@
         <script src="js/clock.js"></script>
         <script src="js/lyrics.js"></script>
         <script src="js/background.js"></script>
+        <script src="js/todo.js"></script>
     </body>
 </html>
