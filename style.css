@@ -1,25 +1,346 @@
+/* 폰트설정 */
 @font-face {
-    font-family: 'YoonChildfundkoreaMinGuk';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408@1.0/YoonChildfundkoreaMinGuk.woff2') format('woff2');
-    font-weight: normal;
+    font-family: 'ClimateCrisisKR-2050';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-2050.woff2')
+        format('woff2');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ClimateCrisisKR-2040';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-2040.woff2')
+        format('woff2');
+    font-weight: 300;
     font-style: normal;
 }
 
-body {
-    font-family: 'YoonChildfundkoreaMinGuk';
+@font-face {
+    font-family: 'ClimateCrisisKR-2019';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-2019.woff2')
+        format('woff2');
+    font-weight: 500;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2')
+        format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+/* 변수설정 */
+:root {
+    --black: #000;
+}
+
+/* ///////////// 초기화 ///////////// */
+/* prettier-ignore */
+html,body,div,h1,h2,p,a,img,ul,li,input{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('img/icon_pil.png') 16 16, auto;
+}
+li {
+    list-style-type: none;
+}
+html {
+    font-family: 'ClimateCrisisKR-1979';
+    line-height: 1;
+    /* rem단위사용할꺼임 */
+    font-size: 10px;
+    color: #000;
+    height: 100%;
+    padding: 5rem 5rem;
+}
+h1,
+h2 {
+    font-size: inherit;
+    color: inherit;
+}
+
+/* //////////////////////////////// */
+
+body {
+    position: relative;
+    height: 100%;
+}
+
 .hidden {
     display: none;
 }
-#clock {
-    font-size: 40px;
+/* 배경이미지 */
+#bgImg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
+#bgImg::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#bgImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* display: none; */
+}
+
+/* 시계 */
+#clock {
+    position: absolute;
+    font-size: 5rem;
+    color: #efefef;
+    right: 0;
+    top: 0;
+}
+/* 로그인폼 */
+#login-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 1rem 2rem;
+    width: 42rem;
+    border-radius: 5rem;
+}
+
+#login-form input {
+    border: none;
+    width: 100%;
+    background: transparent;
+    font-size: 3rem;
+    font-family: 'ClimateCrisisKR-2019';
+    text-align: center;
+    color: #555;
+}
+#login-form input:focus {
+    outline: none;
+    border-color: none;
+}
+
 #greeting {
-    font-size: 80px;
+    position: absolute;
+    font-size: 5rem;
+    color: #efefef;
+    padding-left: 6rem;
+}
+#greeting::before {
+    content: '';
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: url(img/icon_cha2.png);
+    background-size: contain;
+}
+/* 투두리스트 */
+#todo {
+    position: absolute;
+    right: 2rem;
+    top: 20rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 40rem;
+    height: 60rem;
+    border-radius: 1rem;
+}
+#todo::before {
+    content: '';
+    width: 40rem;
+    height: 3rem;
+    background-color: #ccc;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 0.2rem solid #aeaeae;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#todo::after {
+    content: '';
+    width: 10rem;
+    height: 3rem;
+    background-image: url(img/box_bar2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#todo:hover::after {
+    background-image: url(img/box_bar2_h.png);
+}
+#todo > span {
+    display: block;
+    position: absolute;
+    left: calc(50% + 1.5rem);
+    top: 0;
+    transform: translatex(-50%);
+    font-family: initial;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    color: #505050;
+    font-weight: 900;
+}
+#todo > span::before {
+    content: '';
+    background-image: url(img/icon-memo.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    left: -3rem;
+    top: 0;
+}
+#todo-form {
+    text-align: center;
+    padding-top: 6rem;
+}
+#todo-form input {
+    width: 80%;
+    text-align: center;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 1.8rem;
+    background: transparent;
+    padding: 1rem 0;
+}
+#todo-form input:focus {
+    outline: none;
+    border-color: none;
+    box-shadow: inset 0 0 3rem rgba(255, 255, 255, 0.5);
+}
+
+#todo-list {
+    font-family: initial;
+    padding: 3rem 2rem 0 2rem;
+}
+#todo-list li {
+    font-size: 1.6rem;
+    color: #505050;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+#todo-list li button {
+    padding-left: 2rem;
+    border: none;
+    background: transparent;
+}
+
+/* 가사 */
+#lyric {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translatex(-50%);
+    color: #efefef;
+    width: 100%;
+    opacity: 0.9;
 }
 #lyric span:first-child {
-    font-size: 25px;
+    font-family: 'ClimateCrisisKR-2019';
+    font-size: 1.8rem;
+    display: block;
+    text-align: center;
 }
 #lyric span:last-child {
-    font-size: 18px;
+    font-family: 'ClimateCrisisKR-2040';
+    display: block;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+/* 날씨 */
+#weather {
+    font-family: 'ClimateCrisisKR-2019';
+    position: absolute;
+    right: 0;
+    top: 5rem;
+    color: #efefef;
+    font-size: 3.5rem;
+}
+#weather span:last-child {
+    font-family: 'ClimateCrisisKR-2050';
+    display: block;
+    font-size: 3rem;
+    text-align: end;
+}
+
+/* 뮤직박스 */
+#musicBox {
+    position: absolute;
+    left: 2rem;
+    top: 20rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 40rem;
+    height: 60rem;
+    border-radius: 1rem;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#musicBox::before {
+    content: '';
+    width: 40rem;
+    height: 3rem;
+    background-color: #ccc;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 0.2rem solid #aeaeae;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#musicBox::after {
+    content: '';
+    width: 10rem;
+    height: 3rem;
+    background-image: url(img/box_bar2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#musicBox:hover::after {
+    background-image: url(img/box_bar2_h.png);
+}
+#musicBox span {
+    display: block;
+    position: absolute;
+    left: calc(50% + 1.5rem);
+    top: 0;
+    transform: translatex(-50%);
+    font-family: initial;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+    color: #505050;
+    font-weight: 900;
+}
+#musicBox span::before {
+    content: '';
+    background-image: url(img/icon_soundcloud.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    left: -3rem;
+    top: 0;
+}
+#musicBox #youtube span::before {
+    background-image: url(img/icon_youtube.png);
 }
