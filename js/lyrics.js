@@ -46,6 +46,7 @@ const lyrics = [
     },
 ];
 
+const lyric = document.querySelector('#lyric');
 const song = document.querySelector('#lyric span:first-child');
 const track = document.querySelector('#lyric span:last-child');
 // 총 11개 있으므로 인덱스는 0~10임

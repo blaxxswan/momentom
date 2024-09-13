@@ -1,3 +1,4 @@
+const todo = document.querySelector('#todo');
 const toDoForm = document.getElementById('todo-form');
 const toDoInput = toDoForm.querySelector('input');
 // const toDoInput = document.querySelector('#todo-from input'); 과 같음

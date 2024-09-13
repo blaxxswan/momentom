@@ -3,6 +3,7 @@
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const greeting = document.querySelector('#greeting');
+const musicBox = document.querySelector('#musicBox');
 
 // string으로만 포함된 변수는 대문자로표기, 변수를 저장하고싶을 때 사용
 // 중요한 정보를 담은게 아닐 때 대문자 사용
@@ -30,6 +31,12 @@ function onLoginSubmit(event) {
 function paintGreetings(username) {
     greeting.innerText = `Hello ${username}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
+    clock.classList.remove(HIDDEN_CLASSNAME);
+    lyric.classList.remove(HIDDEN_CLASSNAME);
+    todo.classList.remove(HIDDEN_CLASSNAME);
+    musicBox.classList.remove(HIDDEN_CLASSNAME);
+    musicBox.classList.add('flex');
+    weather.classList.remove(HIDDEN_CLASSNAME);
 }
 
 // 로컬스토리지에 유저네임이 있는지 확인하고 h1을 표시함
